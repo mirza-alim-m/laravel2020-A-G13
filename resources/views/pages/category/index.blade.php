@@ -36,7 +36,7 @@
                     <thead>
                         <tr>
                             <td>No</td>
-                            <td>Category Name</td>
+                            <td>@sortablelink('category_name', 'Category Name')</td>
                             <td>Option</td>
                         </tr>
                     </thead>

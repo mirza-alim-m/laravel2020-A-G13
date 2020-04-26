@@ -16,7 +16,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class=" waves-effect">
+                    <a href="{{ route('product.index') }}" class=" waves-effect">
                         <i class="bx bxs-user-pin"></i>
                         <span>Product</span>
                     </a>
