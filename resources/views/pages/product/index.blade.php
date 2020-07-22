@@ -22,7 +22,7 @@
                 <thead>
                     <tr>
                         <td>No</td>
-                        <td>@sortablelink('name', 'Product Name')</td>
+                        <td>@sortablelink('product_name', 'Product Name')</td>
                         <td>Option</td>
                     </tr>
                 </thead>
@@ -33,7 +33,7 @@
                     @forelse ($products as $product)
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td>{{ $product->name }}</td>
+                            <td>{{ $product->product_name }}</td>
                             <td>
                                 <form action="{{ route('product.destroy', $product->id) }}" method="post" id="data-{{$product->id}}">
                                     @csrf

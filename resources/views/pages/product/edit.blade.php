@@ -8,25 +8,76 @@
         <h5>Edit Product</h5>
     </div>
     <div class="card-body">
-        <form action="{{ route('product.update', $products->id) }}" method="post">
+        <form action="/product/{{ $product->id }}" method="post" enctype="multipart/form-data">
+            @method('put')
             @csrf
-            <input type="hidden" name="_method" value="PUT">
             <div class="form-group">
-                <label for="">Poduct Name</label>
-                <input type="text" name="name" class="form-control" value="{{$products->name}}">
+                <label for="">Product Name</label>
+                <input type="text" name="product_name" class="form-control @error('product_name') is-invalid @enderror" value="{{ $product->product_name }}">
+                @error('product_name')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="form-group">
-                <label for="">Poduct Price</label>
-                <input type="number" name="price" class="form-control" min="1" value="{{$products->price}}">
+                <label for="">Product Price</label>
+                <input type="number" name="product_price" class="form-control @error('product_price') is-invalid @enderror" value="{{ $product->product_price }}">
+                @error('product_price')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="form-group">
-                <label for="">Poduct Category</label>
-                <select name="category_id" id="">
-                        <option value="{{$products->category_id}}">{{$products->category->category_name}}</option>
+                <label for="product_category">Product Category</label>
+                <select name="product_category" class="form-control" id="product_category">
+                    <option value="">- Pilih -</option>
+                    @foreach($category as $ct)
+                    <option value="{{ $ct->category_name }}" {{ $product->product_category == $ct->category_name ? 'selected' : ''}}>
+                    {{ $ct->category_name }}</option>
+                    @endforeach
                 </select>
+                @error('product_category')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="form-group">
-                <button class="btn btn-primary">Save</button>
+                <label for="product_image">Product Image</label>
+                @if($product->product_image != NULL)
+                <div>
+                    <input type="hidden" name="oldimage" value="{{ $product->product_image }}">
+                    <img src="{{asset('storage/image/'.$product->product_image)}}" class="mb-2">
+                </div>
+                @endif
+                <input type="file" name="product_image" class="form-control @error('product_image') is-invalid @enderror" id="product_image" />
+                @error('product_image')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="product_pdf">Product PDF</label>
+                @if($product->product_pdf != NULL)
+                <div>
+                    <input type="hidden" name="oldpdf" value="{{ $product->product_pdf }}">
+                    <a href="{{asset('/storage/pdf/'.$product->product_pdf)}}" target="_blank">Lihat PDF Sebelumnya</a>
+                </div>
+                @endif
+                <br>
+                <input type="file" name="product_pdf" class="form-control @error('product_pdf') is-invalid @enderror" id="product_pdf" />
+                @error('product_pdf')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <br>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
         </form>
     </div>
