@@ -8,12 +8,17 @@ use Kyslik\ColumnSortable\Sortable;
 
 class Category extends Model
 {
+
+	protected $table="category";
+
+	protected $fillable=['category_name','category_image','category_pdf'];
+
     use Sortable;
-    protected $guarded = [];
 
     public $sortable = ['category_name'];
 
     public function products(){
         return $this->hasMany(Product::class);
     }
+
 }

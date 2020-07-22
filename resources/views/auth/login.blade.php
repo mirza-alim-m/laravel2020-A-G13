@@ -103,7 +103,7 @@
                         </div>
                     </div>
                     <div class="mt-5 text-center">
-                        <p>Don't have an account ? <a href="auth-register.html" class="font-weight-medium text-primary">
+                        <p>Don't have an account ? <a href="{{ route('register') }}" class="font-weight-medium text-primary">
                                 Signup now </a> </p>
                         <p>© 2020 Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
                     </div>

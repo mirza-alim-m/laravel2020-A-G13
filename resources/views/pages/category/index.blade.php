@@ -7,11 +7,34 @@
     <div class="col-md-4">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('category.store') }}" method="post">
+                <form action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="">Category Name</label>
-                        <input type="text" name="category_name" class="form-control">
+                        <input type="text" name="category_name" class="form-control @error('category_name') is-invalid @enderror" placeholder="Category Name">
+                        @error('category_name')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="">Category Image</label>
+                        <input type="file" name="category_image" class="form-control @error('category_image') is-invalid @enderror">
+                        @error('category_image')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="">Category PDF</label>
+                        <input type="file" name="category_pdf" class="form-control @error('category_pdf') is-invalid @enderror">
+                        @error('category_pdf')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Save</button>

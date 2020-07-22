@@ -20,10 +20,10 @@
             </div>
             <div class="form-group">
                 <label for="">Poduct Category</label>
-                <select name="category_id" id="">
+                <select name="category_id" id="" class="form-control">
                     <option value="">Choose Category</option>
                     @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->category_name}}</option>                        
+                        <option value="{{ $category->id }}">{{$category->category_name}}</option>                        
                     @endforeach
                 </select>
             </div>
