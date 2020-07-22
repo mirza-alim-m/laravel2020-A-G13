@@ -26,3 +26,6 @@ Route::group(['middleware' => 'auth','middleware'=>'verified'], function () {
 	Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
 
 });
+
+Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');

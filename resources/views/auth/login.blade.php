@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Login | Skote - Responsive Bootstrap 4 Admin Dashboard</title>
+    <title>Skote</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -16,6 +16,8 @@
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+    <script src="https://kit.fontawesome.com/yourcode.js"></script>
 
 </head>
 
@@ -32,7 +34,7 @@
                             <div class="row">
                                 <div class="col-7">
                                     <div class="text-primary p-4">
-                                        <h5 class="text-primary">Welcome Back !</h5>
+                                        <h5 class="text-primary">Selamat Datang!</h5>
                                         <p>Sign in to continue to Skote.</p>
                                     </div>
                                 </div>
@@ -82,20 +84,22 @@
 
                                     </div>
 
-                                    <div class="custom-control custom-checkbox">
+                                    <!-- <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="customControlInline">
                                         <label class="custom-control-label" for="customControlInline">Remember
                                             me</label>
-                                    </div>
+                                    </div> -->
 
+                                    <div class="mt-5">
+                                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Log In</button>
+                                    </div>
                                     <div class="mt-3">
-                                        <button class="btn btn-primary btn-block waves-effect waves-light"
-                                            type="submit">Log In</button>
-                                    </div>
-
+                                        <a href="/auth/github" class="mx-5"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="10%"><b style="color: black;">Github</b></a>
+                                    </div><!-- 
+                                    <a href="{{ url('/auth/twitter') }}" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+                                    <a href="{{ url('/auth/facebook') }}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a> -->
                                     <div class="mt-4 text-center">
-                                        <a href="{{ route('password.request') }}" class="text-muted"><i
-                                                class="mdi mdi-lock mr-1"></i> Forgot your password?</a>
+                                        <a href="{{ route('password.request') }}" class="text-muted"><i class="mdi mdi-lock mr-1"></i> Forgot your password?</a>
                                     </div>
                                 </form>
                             </div>
@@ -103,9 +107,8 @@
                         </div>
                     </div>
                     <div class="mt-5 text-center">
-                        <p>Don't have an account ? <a href="{{ route('register') }}" class="font-weight-medium text-primary">
-                                Signup now </a> </p>
-                        <p>© 2020 Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                        <p>Don't have an account ?<a href="{{ route('register') }}" class="font-weight-medium text-primary">
+                                Signup now </a></p>
                     </div>
 
                 </div>

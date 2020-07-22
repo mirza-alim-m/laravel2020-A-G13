@@ -15,7 +15,7 @@ class CategorySeeder extends Seeder
         $faker = Faker::create('id_ID');
 
         for($i = 1; $i <= 100; $i++) {
-            DB::Table('categories')->insert([
+            DB::Table('category')->insert([
                 'category_name' =>$faker->jobTitle
             ]);
         }
