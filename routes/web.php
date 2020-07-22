@@ -13,12 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-
-
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => 'auth','middleware'=>'verified'], function () {
+    
     Route::get('/home', 'HomeController@index')->name('home');
+    
     Route::resource('category', 'CategoryController');
     Route::resource('product', 'ProductController');
+
+    Route::get('change-password', 'ChangePasswordController@index');
+	Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
+
 });
