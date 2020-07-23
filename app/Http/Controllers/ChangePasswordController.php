@@ -44,6 +44,6 @@ class ChangePasswordController extends Controller
    
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
    
-        return redirect()->route('home');
+        return redirect('/');
     }
 }
