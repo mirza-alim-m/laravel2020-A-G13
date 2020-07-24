@@ -15,7 +15,7 @@ class ProductController extends Controller
     {
     
         $products = Product::when($request->search, function($query) use($request){
-            $query->where('name', 'LIKE', "%{$request->search}%");
+            $query->where('product_name', 'LIKE', "%{$request->search}%");
         })->sortable()->paginate(3);
     
         return view('pages.product.index', compact('products'));
